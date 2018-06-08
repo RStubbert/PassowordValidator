@@ -32,6 +32,26 @@ public class Validator
         {
             valid = false;
         }
+        //3 added rules
+
+        //password is no longer than 24 characters
+        if (password.length() > 24)
+        {
+            valid = false;
+        }
+
+
+        //Insure password has at least 1 lower case and 1 upper case letter
+        if(password.equals(password.toLowerCase()) || password.equals(password.toUpperCase()))
+        {
+            valid = false;
+        }
+
+        //Insure password has at lease 1 number
+        if(!Pattern.compile("[0-9]").matcher(password).find())
+        {
+            valid = false;
+        }
 
         return valid;
     }
